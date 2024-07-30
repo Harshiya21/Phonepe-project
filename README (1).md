@@ -145,4 +145,4 @@ Note : You can check the .py file attched above for the code implementation of t
 
 ## DEMO
 
-    https://drive.google.com/file/d/1-Bb4wjx56vTApFQZNhXW88GCtyADZDgY/view?usp=sharing
+    https://drive.google.com/file/d/1kG-C0UvyI7yqBWkv870hOLYuUR3SRsQ5/view?usp=drive_link
