@@ -487,7 +487,7 @@ if select_options == "INSIGHTS":
                                                 "5.States based on Transaction Count",
                                                 "6.States based on Total Transactions",
                                                 "7.Least 10 States Total Phonepe Users and App opens in INDIA ",
-                                                "8.List out the district in tamilnadu who had Open and Using phonepe",
+                                                "8.List out the district in tamilnadu who had Using Phonepe",
                                                 "9.Least 10 Pincodes along with States Total Phonepe Users",
                                                 "10.List the Payments and Types of Transactions conducted in each Union Territory using PhonePe"))
     
