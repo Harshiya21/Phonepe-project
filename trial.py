@@ -552,6 +552,7 @@ if select_options == "INSIGHTS":
         GROUP BY State \
         ORDER BY Transaction_Count DESC''')
         df5=pd.DataFrame(mycursor.fetchall(),columns=["State","Transaction_Count"])
+        st.write(df5)
         fig_bar_5 = px.bar(df5, x="State", y="Transaction_Count",title="State by Transaction Count",
                             width=600,color_discrete_sequence=px.colors.sequential.Reds_r)
         st.plotly_chart(fig_bar_5)
@@ -596,6 +597,8 @@ if select_options == "INSIGHTS":
                         width=600,color_discrete_sequence=px.colors.sequential.Rainbow)
         
         st.plotly_chart(fig_bar_8)
+        st.subheader("Insights")
+        st.write ("Like many other high GDP states, Tamil Nadu also boasts a significant user base across all its districts, with transactions steadily increasing over the past few years. With its robust infrastructure, sustained economic growth, high GDP, and dense population, Tamil Nadu ranks among the top 10 states in PhonePe data ")
 
     elif questions == "9.Least 10 Pincodes along with States Total Phonepe Users": 
         mycursor.execute('USE phonepae')
@@ -619,7 +622,7 @@ if select_options == "INSIGHTS":
         ORDER BY Transaction_Amount,Transaction_Type DESC \
         LIMIT 10''')
         df10=pd.DataFrame(mycursor.fetchall(),columns=["State","Transaction_Amount","Transaction_Type"])
-        st.write(df5)
+        st.write(df10)
         fig_sunburst_10=px.sunburst(df10,path=["State","Transaction_Amount"],values="Transaction_Type",
                                 title="Total Transactions and Type of Transacations")
         st.plotly_chart(fig_sunburst_10)
