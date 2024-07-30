@@ -489,7 +489,7 @@ if select_options == "INSIGHTS":
                                                 "7.Least 10 States Total Phonepe Users and App opens in INDIA ",
                                                 "8.List out the district in tamilnadu who had Open and Using phonepe",
                                                 "9.Least 10 Pincodes along with States Total Phonepe Users",
-                                                "10.List the total payments and types of transactions conducted in each Union Territory using PhonePe"))
+                                                "10.List the Payments and Types of Transactions conducted in each Union Territory using PhonePe"))
     
     if questions == "1.Top 10 States Amount Transactions":
         mycursor.execute('USE phonepae')
@@ -610,19 +610,21 @@ if select_options == "INSIGHTS":
                                     title ="Total Phonepe Users")
         st.plotly_chart(fig_sunburst_3)
 
-    elif questions == "10.List the total payments and types of transactions conducted in each Union Territory using PhonePe":
+    elif questions == "10.List the  Payments and Types of Transactions  conducted in each Union Territory using PhonePe":
         mycursor.execute('USE phonepae')
-        mycursor.execute('''SELECT State,Transaction_type AS Transaction_Type, SUM(Transaction_amount) AS Transaction_Amount  \
+        mycursor.execute('''SELECT State,Transaction_type AS Transaction_Type, Transaction_amount AS Transaction_Amount  \
         FROM Agg_Trans \
         WHERE State in ("Ladakh","Jammu & Kashmir","Puducherry","Lakshadweep","Delhi","Chandigarh","Dadra and Nagar Have","Andaman and Nicobar Islands") \
         GROUP BY State \
         ORDER BY Transaction_Amount,Transaction_Type DESC \
         LIMIT 10''')
-        df5=pd.DataFrame(mycursor.fetchall(),columns=["State","Transaction_Amount","Transaction_Type"])
+        df10=pd.DataFrame(mycursor.fetchall(),columns=["State","Transaction_Amount","Transaction_Type"])
         st.write(df5)
-        fig_sunburst_5=px.sunburst(df5,path=["State","Transaction_Amount"],values="Transaction_Type",
+        fig_sunburst_10=px.sunburst(df10,path=["State","Transaction_Amount"],values="Transaction_Type",
                                 title="Total Transactions and Type of Transacations")
-        st.plotly_chart(fig_sunburst_5)
+        st.plotly_chart(fig_sunburst_10)
+        st.subheader("Insights")
+        st.write("Delhi leads in the total number of transactions, with a significant amount of ₹1.32 billion processed through Recharge & Bill Payments. Meanwhile, Jammu & Kashmir and Chandigarh follow with relatively lower transaction volumes but still significant amounts. It's notable that while Ladakh has a lower number of transactions, the average transaction amount is comparatively higher, suggesting potential opportunities for further analysis or targeted marketing efforts in these regions")
 
 if select_options == "GEO VISUALIZATION":
     
