@@ -382,7 +382,7 @@ if select_options == "Data Explore":
     quarters = ["Q1 (Jan - Mar)", "Q2 (Apr - Jun)", "Q3 (Jul - Sep)", "Q4 (Oct - Dec)"]
     selected_quarter = st.selectbox("Select Quarter", quarters)
 
-    #TOP 10 states ([3,3,2])
+    #TOP 10 states 
     if(selected_trans_user == 'Transactions'):
             # Add custom CSS to control the column spacing
         col1,col2,col3 =st.columns([2,2,2])
